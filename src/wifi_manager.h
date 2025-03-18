@@ -72,7 +72,7 @@ extern "C" {
  * @brief Time (in ms) between each retry attempt
  * Defines the time to wait before an attempt to re-connect to a saved wifi is made after connection is lost or another unsuccesful attempt is made.
  */
-#define WIFI_MANAGER_RETRY_TIMER			CONFIG_WIFI_MANAGER_RETRY_TIMER
+#define WIFI_MANAGER_RETRY_TIMER			60000
 
 
 /**
