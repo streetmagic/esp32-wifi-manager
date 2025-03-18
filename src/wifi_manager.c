@@ -959,7 +959,7 @@ void wifi_manager( void * pvParameters ){
 
 
 	/* by default the mode is STA because wifi_manager will not start the access point unless it has to! */
-	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+	//ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
 	ESP_ERROR_CHECK(esp_wifi_start());
 
 	/* start http server */
@@ -1229,26 +1229,26 @@ void wifi_manager( void * pvParameters ){
 				ESP_LOGI(TAG, "MESSAGE: ORDER_STOP_AP");
 
 
-				uxBits = xEventGroupGetBits(wifi_manager_event_group);
+				// uxBits = xEventGroupGetBits(wifi_manager_event_group);
 
-				/* before stopping the AP, we check that we are still connected. There's a chance that once the timer
-				 * kicks in, for whatever reason the esp32 is already disconnected.
-				 */
-				if(uxBits & WIFI_MANAGER_WIFI_CONNECTED_BIT){
+				// /* before stopping the AP, we check that we are still connected. There's a chance that once the timer
+				//  * kicks in, for whatever reason the esp32 is already disconnected.
+				//  */
+				// if(uxBits & WIFI_MANAGER_WIFI_CONNECTED_BIT){
 
-					/* set to STA only */
-					esp_wifi_set_mode(WIFI_MODE_STA);
+				// 	/* set to STA only */
+				// 	esp_wifi_set_mode(WIFI_MODE_STA);
 
-					/* stop DNS */
-					dns_server_stop();
+				// 	/* stop DNS */
+				// 	dns_server_stop();
 
-					/* restart HTTP daemon */
-					http_app_stop();
-					http_app_start(false);
+				// 	/* restart HTTP daemon */
+				// 	http_app_stop();
+				// 	http_app_start(false);
 
-					/* callback */
-					if(cb_ptr_arr[msg.code]) (*cb_ptr_arr[msg.code])(NULL);
-				}
+				// 	/* callback */
+				// 	if(cb_ptr_arr[msg.code]) (*cb_ptr_arr[msg.code])(NULL);
+				// }
 
 				break;
 

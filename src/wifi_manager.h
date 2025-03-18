@@ -118,7 +118,7 @@ extern "C" {
  *  20 MHz minimize channel interference but is not suitable for
  *  applications with high data speeds
  */
-#define DEFAULT_AP_BANDWIDTH 					WIFI_BW_HT20
+#define DEFAULT_AP_BANDWIDTH 					WIFI_BW_HT40
 
 /** @brief Defines access point's channel.
  *  Channel selection is only effective when not connected to another AP.
